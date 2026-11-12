@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portafolio de motion design de Joaquín García.">
+<meta property="og:title" content="Joaquín García">
+<meta property="og:description" content="Motion design. Portafolio.">
+<meta property="og:type" content="website">
+<style>:root{color-scheme:light}body{margin:0}img,video{max-width:100%}</style>
+<title>Joaquín García</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Jost:wght@300;400&display=swap">
+<style>
+  /* Layout: una sola columna editorial. Nombre y video vertical abren la página; los dos videos horizontales
+     van a todo el ancho; un único contacto al final. Gris cálido, mucho aire, sin adornos. */
+  :root {
+    --bg: #E6E3DE;
+    --fg: #1C1B1A;
+    --muted: #6F6B65;
+    --line: #CBC7C0;
+    --frame: #D8D4CD;
+    --display: "Jost", "Futura", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151413;
+      --fg: #EDEAE5;
+      --muted: #8F8A83;
+      --line: #2E2C29;
+      --frame: #1F1D1B;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151413;
+    --fg: #EDEAE5;
+    --muted: #8F8A83;
+    --line: #2E2C29;
+    --frame: #1F1D1B;
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: clamp(32px, 7vw, 80px);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin-inline: auto; }
+
+  /* Apertura */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  @media (min-width: 820px) {
+    .hero { grid-template-columns: 1fr minmax(280px, 360px); gap: 64px; }
+  }
+  .name {
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(2.6rem, 8vw, 5.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .name span { display: block; }
+  .role {
+    margin: 28px 0 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Videos */
+  figure { margin: 0; min-width: 0; }
+  .frame { background: var(--frame); width: 100%; overflow: hidden; }
+  .frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .frame.v { aspect-ratio: 9 / 16; max-width: 360px; }
+  .frame.h { aspect-ratio: 16 / 9; }
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin-top: 12px;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+  figcaption { align-items: baseline; }
+  .snd {
+    margin-left: auto;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .snd:hover, .snd[aria-pressed="true"] { color: var(--fg); border-bottom-color: var(--fg); }
+  .snd:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+  figcaption .brand { color: var(--fg); font-weight: 500; }
+  figcaption .product { color: var(--muted); }
+
+  .reel { display: grid; gap: clamp(40px, 6vw, 72px); margin-top: clamp(56px, 9vw, 112px); }
+
+  /* Contacto */
+  .contact {
+    margin-top: clamp(64px, 10vw, 128px);
+    padding-top: 36px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .contact .lead { margin: 0; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.02em; }
+  .contact .number {
+    margin: 4px 0 0;
+    font-family: var(--display);
+    font-weight: 300;
+    font-size: clamp(1.4rem, 3.4vw, 1.9rem);
+    letter-spacing: 0.02em;
+    user-select: all;
+  }
+  .cta {
+    display: inline-block;
+    padding: 14px 26px;
+    background: var(--fg);
+    color: var(--bg);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid var(--fg);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .cta:hover { background: transparent; color: var(--fg); }
+  .cta:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+
+  .foot { margin-top: 48px; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <h1 class="name"><span>Joaquín</span><span>García</span></h1>
+      <p class="role">Motion design</p>
+    </div>
+    <figure>
+      <div class="frame v">
+        <video muted loop playsinline autoplay preload="metadata" poster="videos/voltiq.jpg" aria-label="Voltiq, energy drink">
+          <source src="videos/voltiq.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption><span class="brand">Voltiq</span><span class="product">Energy drink</span><button class="snd" type="button" aria-pressed="false">Activar sonido</button></figcaption>
+    </figure>
+  </header>
+
+  <main class="reel">
+    <figure>
+      <div class="frame h">
+        <video muted loop playsinline autoplay preload="metadata" poster="videos/chai.jpg" aria-label="Chai, sparkling lemonade">
+          <source src="videos/chai.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption><span class="brand">Chai</span><span class="product">Sparkling lemonade</span><button class="snd" type="button" aria-pressed="false">Activar sonido</button></figcaption>
+    </figure>
+    <figure>
+      <div class="frame h">
+        <video muted loop playsinline autoplay preload="metadata" poster="videos/kallpa.jpg" aria-label="Kallpa, barra de cereal">
+          <source src="videos/kallpa.mp4" type="video/mp4">
+        </video>
+      </div>
+      <figcaption><span class="brand">Kallpa</span><span class="product">Barra de cereal</span><button class="snd" type="button" aria-pressed="false">Activar sonido</button></figcaption>
+    </figure>
+  </main>
+
+  <footer>
+    <div class="contact">
+      <div>
+        <p class="lead">Para proyectos y cotizaciones</p>
+        <p class="number">+51 977 679 627</p>
+      </div>
+      <a class="cta" href="https://wa.me/51977679627?text=Hola%20Joaqu%C3%ADn%2C%20vi%20tu%20trabajo%20y%20quiero%20conversar%20sobre%20un%20proyecto." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+    <p class="foot">© 2026 Joaquín García</p>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var videos = Array.prototype.slice.call(document.querySelectorAll('video'));
+    var btns = Array.prototype.slice.call(document.querySelectorAll('.snd'));
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+    function play(v) {
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+
+    if (reduce) {
+      videos.forEach(function (v) {
+        v.removeAttribute('autoplay');
+        v.pause();
+        v.controls = true;
+      });
+      btns.forEach(function (b) { b.hidden = true; });
+      return;
+    }
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var v = btn.closest('figure').querySelector('video');
+        var turnOn = v.muted;
+        videos.forEach(function (o) { o.muted = true; });
+        btns.forEach(function (b) {
+          b.setAttribute('aria-pressed', 'false');
+          b.textContent = 'Activar sonido';
+        });
+        if (turnOn) {
+          v.muted = false;
+          btn.setAttribute('aria-pressed', 'true');
+          btn.textContent = 'Silenciar';
+          play(v);
+        }
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) play(en.target); else en.target.pause();
+        });
+      }, { threshold: 0.25 });
+      videos.forEach(function (v) { io.observe(v); });
+    } else {
+      videos.forEach(play);
+    }
+  })();
+</script>
+</body>
+</html>
